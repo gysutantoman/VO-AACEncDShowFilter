@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{022E0C80-8F7E-4E95-BBE0-60B7289A5A59}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>VisualOnAACEncDll</RootNamespace>
+    <ProjectName>VisualOnAACEncLib</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin\debug\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin\release\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>common/include;aacenc/basic_op;aacenc/inc;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>common/include;aacenc/basic_op;aacenc/inc;</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="aacenc\basic_op\basicop2.c" />
+    <ClCompile Include="aacenc\basic_op\oper_32b.c" />
+    <ClCompile Include="aacenc\src\aacenc.c" />
+    <ClCompile Include="aacenc\src\aacenc_core.c" />
+    <ClCompile Include="aacenc\src\aac_rom.c" />
+    <ClCompile Include="aacenc\src\adj_thr.c" />
+    <ClCompile Include="aacenc\src\band_nrg.c" />
+    <ClCompile Include="aacenc\src\bitbuffer.c" />
+    <ClCompile Include="aacenc\src\bitenc.c" />
+    <ClCompile Include="aacenc\src\bit_cnt.c" />
+    <ClCompile Include="aacenc\src\block_switch.c" />
+    <ClCompile Include="aacenc\src\channel_map.c" />
+    <ClCompile Include="aacenc\src\dyn_bits.c" />
+    <ClCompile Include="aacenc\src\grp_data.c" />
+    <ClCompile Include="aacenc\src\interface.c" />
+    <ClCompile Include="aacenc\src\line_pe.c" />
+    <ClCompile Include="aacenc\src\memalign.c" />
+    <ClCompile Include="aacenc\src\ms_stereo.c" />
+    <ClCompile Include="aacenc\src\pre_echo_control.c" />
+    <ClCompile Include="aacenc\src\psy_configuration.c" />
+    <ClCompile Include="aacenc\src\psy_main.c" />
+    <ClCompile Include="aacenc\src\qc_main.c" />
+    <ClCompile Include="aacenc\src\quantize.c" />
+    <ClCompile Include="aacenc\src\sf_estim.c" />
+    <ClCompile Include="aacenc\src\spreading.c" />
+    <ClCompile Include="aacenc\src\stat_bits.c" />
+    <ClCompile Include="aacenc\src\tns.c" />
+    <ClCompile Include="aacenc\src\transform.c" />
+    <ClCompile Include="common\cmnMemory.c" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
